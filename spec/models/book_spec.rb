@@ -4,6 +4,7 @@ RSpec.describe Book, type: :model do
   fixtures :books
   fixtures :authors
   fixtures :publishers
+  fixtures :book_reviews
 
   before do
     @book = Book.first
@@ -25,12 +26,15 @@ RSpec.describe Book, type: :model do
   end
 
   it 'has a publisher' do
-    byebug
     expect(@book.publisher.name).to eq('little brown and company')
   end
 
   it 'has an author' do
     expect(@book.author.first_name).to eq('jerome')
+  end
+
+  it 'can have many reviews' do
+    be_true @book.book_reviews.any?
   end
 
 end

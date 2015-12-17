@@ -1,0 +1,15 @@
+hard_franny:
+  book: franny_and_zooey
+  book_format_type: hardcover
+
+soft_franny:
+  book: franny_and_zooey
+  book_format_type: softcover
+
+kindle_franny:
+  book: franny_and_zooey
+  book_format_type: kindle
+
+pdf_franny:
+  book: pdf_franny
+  book_fromat_type: pdf

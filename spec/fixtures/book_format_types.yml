@@ -1,0 +1,15 @@
+hardcover:
+  name: hardcover
+  physical: true
+
+softcover:
+  name: softcover
+  physical: true
+
+kindle:
+  name: kindle
+  physical: false
+
+pdf:
+  name: pdf
+  physical: false

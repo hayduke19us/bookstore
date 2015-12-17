@@ -14,3 +14,6 @@
 
 # OS store
 .DS_Store
+
+# byebug
+.byebug_history

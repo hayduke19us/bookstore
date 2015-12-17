@@ -1,0 +1,19 @@
+worst:
+  book: franny_and_zooey
+  rating: 1
+
+not_good:
+  book: franny_and_zooey
+  rating: 2
+
+pretty_good:
+  book: frany_and_zooey
+  rating: 3
+
+good:
+  book: franny_and_zooey
+  rating: 4
+
+best:
+  book: franny_and_zooey
+  rating: 5
