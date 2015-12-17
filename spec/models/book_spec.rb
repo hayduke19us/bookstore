@@ -2,12 +2,9 @@ require 'rails_helper'
 
 RSpec.describe Book, type: :model do
   fixtures :books
-  fixtures :authors
-  fixtures :publishers
-  fixtures :book_reviews
 
   before do
-    @book = Book.first
+    @book = books(:franny_and_zooey)
   end
 
   it 'requires a title' do
@@ -35,6 +32,18 @@ RSpec.describe Book, type: :model do
 
   it 'can have many reviews' do
     be_true @book.book_reviews.any?
+  end
+
+  it 'has many book_formats serving as a join model' do
+    be_true @book.book_formats.any?
+  end
+
+  it 'can have many formats' do
+    be_true @book.book_format_types.any?
+  end
+
+  it 'returns the authors full name' do
+    expect(@book.author_name).to eq('Jerome Salinger')
   end
 
 end
