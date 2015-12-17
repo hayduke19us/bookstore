@@ -47,8 +47,8 @@ RSpec.describe Book, type: :model do
   end
 
   it 'returns an average review ratings rounded to one decimal place' do
-    byebug
     expect(@book.average_rating).to eq(3.0)
   end
+
 
 end

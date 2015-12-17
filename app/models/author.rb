@@ -3,7 +3,7 @@ class Author < ActiveRecord::Base
 
   has_many :books
 
-  scope :by_first_name, -> (query) { where "first_name ~* ?", query }
-  scope :by_last_name, -> (query) { where "last_name ~* ?", query }
+  scope :by_first_name, -> (query) { where "lower(first_name) = ?", query.downcase }
+  scope :by_last_name, -> (query) { where "lower(last_name) = ?", query.downcase }
 
 end

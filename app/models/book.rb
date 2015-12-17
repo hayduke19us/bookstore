@@ -8,6 +8,12 @@ class Book < ActiveRecord::Base
   has_many :book_format_types, through: :book_formats
   has_many :book_reviews
 
+  scope :by_title, -> (query) { where "title ~* ?", query}
+
+  def self.search query, options: {}
+    where "name ~* ?", "#{query}"
+  end
+
   def author_name
     author_first_name + ' ' + author_last_name
   end

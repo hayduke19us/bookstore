@@ -17,15 +17,20 @@ RSpec.describe Author, type: :model do
     be_false @author.valid?
   end
 
-  it 'returns authors by first name, not case sensitive' do
-    authors = Author.by_first_name "jEr"
+  it 'returns authors by first name exact match, not case sensitive' do
+    authors = Author.by_first_name "JEROMe"
     expect(authors.first.first_name).to match(/jer/)
+
+    authors = Author.by_first_name "JEROne"
+    be_false authors.any?
   end
 
-  it 'returns authors by last name, not case sensitive' do
-    byebug
-    authors = Author.by_last_name "Sal"
+  it 'returns authors by last name exact match, not case sensitive' do
+    authors = Author.by_last_name "SalInger"
     expect(authors.first.last_name).to match(/sal/)
+
+    authors = Author.by_last_name "SalInge"
+    be_false authors.any?
   end
 
 end
