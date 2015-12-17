@@ -52,7 +52,7 @@ RSpec.describe Book, type: :model do
 
   it 'returns books based off either title, or author name and sorts by rating' do
     books = Book.search('Jerome')
-    puts books.inspect
+    expect(books.first.title).to eq('hardboiled soldier')
   end
 
 end
