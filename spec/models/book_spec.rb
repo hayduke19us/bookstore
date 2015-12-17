@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Book, type: :model do
-  fixtures :books
+  fixtures :all
 
   before do
     @book = books(:franny_and_zooey)
@@ -50,19 +50,9 @@ RSpec.describe Book, type: :model do
     expect(@book.average_rating).to eq(3.0)
   end
 
-  it 'returns books by title partial matches and case insensitive' do
-    books = Book.by_title 'ranny'
-    expect(books.first.title).to eq('franny and zooey')
-
-    books = Book.by_title 'nd'
-    expect(books.first.title).to eq('franny and zooey')
-
-    books = Book.by_title 'ooEY'
-    expect(books.first.title).to eq('franny and zooey')
-
-    books = Book.by_title 'PooEY'
-    be_false books.any?
+  it 'returns books based off either title, or author name and sorts by rating' do
+    books = Book.search('Jerome')
+    puts books.inspect
   end
-
 
 end

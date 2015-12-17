@@ -1,19 +1,19 @@
 worst:
-  book: franny_and_zooey
+  book: seymore
   rating: 1
 
 not_good:
-  book: franny_and_zooey
+  book: catcher_in_the_rye
   rating: 2
 
 pretty_good:
-  book: frany_and_zooey
+  book: franny_and_zooey
   rating: 3
 
 good:
-  book: franny_and_zooey
+  book: inverted
   rating: 4
 
 best:
-  book: franny_and_zooey
+  book: hardboiled
   rating: 5

@@ -8,12 +8,13 @@ class Book < ActiveRecord::Base
   has_many :book_format_types, through: :book_formats
   has_many :book_reviews
 
-  scope :by_title, -> (query) { where "lower(title) LIKE ?", "%#{query.downcase}%" }
-
   def self.search query, options: default_options
-    begin
-      raise if query
-    end
+    query = query.downcase
+    joins(:author).
+    where("lower(authors.first_name) = ? OR lower(authors.last_name) = ?
+          OR lower(books.title) LIKE ?", query, query, "%#{query}%").
+    uniq.
+    sort_by(&:average_rating).reverse!
   end
 
   def author_name
@@ -29,20 +30,15 @@ class Book < ActiveRecord::Base
   end
 
   def average_rating
-    (ratings_sum / number_of_reviews).round(1)
+    (ratings_sum / book_reviews.count).round(1)
   end
 
   def ratings_sum
     self.book_reviews.pluck(:rating).sum
   end
 
-  def number_of_reviews
-    book_reviews.count
-  end
-
   private
-
-  def default_options
+  def self.default_options
     {title_only: false}
   end
 
