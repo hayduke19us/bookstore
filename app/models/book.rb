@@ -13,10 +13,22 @@ class Book < ActiveRecord::Base
   end
 
   def author_first_name
-    self.author.first_name.capitalize
+    author.first_name.capitalize
   end
 
   def author_last_name
-    self.author.last_name.capitalize
+    author.last_name.capitalize
+  end
+
+  def average_rating
+    (ratings_sum / number_of_reviews).round(1)
+  end
+
+  def ratings_sum
+    self.book_reviews.pluck(:rating).sum
+  end
+
+  def number_of_reviews
+    book_reviews.count
   end
 end

@@ -46,4 +46,9 @@ RSpec.describe Book, type: :model do
     expect(@book.author_name).to eq('Jerome Salinger')
   end
 
+  it 'returns an average review ratings rounded to one decimal place' do
+    byebug
+    expect(@book.average_rating).to eq(3.0)
+  end
+
 end
