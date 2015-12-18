@@ -8,19 +8,16 @@ have BookFormatTypes through BookFormats and Books also have Reviews.
 
 **Clone The Repo** 
 
-				git clone https::/github.com/hayduke19us/bookstore
+				git clone https::/github.com/hayduke19us/bookstore && 
+				cd bookstore
 
 **Dependencies** 
 
-				bundle exec install
+				bundle install
 
-**Create The database and run the migrations**
+**Create The database run the migrations and populate the database**
 
 				rake db:setup
-
-**Development resources**
-
-				rake db:seed 
 
 This will create:
 
