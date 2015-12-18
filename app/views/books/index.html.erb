@@ -1,0 +1,15 @@
+<div class='container-fluid'>
+  <div class='row'>
+    <div class='col-lg-12'>
+      <h1>Bookstore</h1>
+      <ul class="nav nav-tabs">
+        <li role="presentation" class="active"><a href="#">Books</a></li>
+        <li role="presentation"><a href="#">Authors</a></li>
+        <li role="presentation"><a href="#">Publishers</a></li>
+      </ul>
+      <% @books.each do |book| %>
+        <%= render partial: 'book', locals: { book: book } %>
+      <% end %>
+    </div>
+  </div>
+</div>
