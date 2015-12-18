@@ -1,28 +1,93 @@
-== README
+## Readme
+Welcome to Bookstore! 
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+The general architecture is simple. Publishers and Authors have Books. Books
+have BookFormatTypes through BookFormats and Books also have Reviews. 
 
-Things you may want to cover:
+#### Getting Started 
 
-* Ruby version
+**Clone The Repo** 
 
-* System dependencies
+				git clone https::/github.com/hayduke19us/bookstore
 
-* Configuration
+**Dependencies** 
 
-* Database creation
+				bundle exec install
 
-* Database initialization
+**Create The Database and run the migrations**
 
-* How to run the test suite
+				rake db:setup
 
-* Services (job queues, cache servers, search engines, etc.)
+**Development Resources**
 
-* Deployment instructions
+				rake db:seed 
 
-* ...
+This will create:
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+10  BookFormatType's created
+100 Publisher's created
+100 Author's created
+150 Book's created
+150 BookFormat's created
+15000 BookReview's created
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+**Run The Tests**
+
+				bundle exec rake 
+
+**Searching For Books**
+
+Book has a class method for searching that takes one argument and up to three
+options. 
+				
+```ruby
+
+# Default opts
+
+{title_only: false, book_format_type_id: nil book_format_type_physical: nil}
+
+Book.search "Jerome", options: {}
+
+```
+
+* If title only is true it will return the results from the query only! The
+	results are sorted by the book's review average. 
+
+* If book_format_type_id is given an id it will return only the books that have
+	a matching BookFormat.
+
+* If format_type_physical is true it returns only the books that have a physical
+	format.
+
+** Author name**
+
+```ruby 
+
+# Returns the authers full name first and last.
+
+@book.author_name
+
+```
+
+**Average Rating**
+
+```ruby
+
+# Returns the books average rating rounded to the first decimal
+
+@book.average_rating
+
+```
+
+**Book Format Types***
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+``` ruby 
+
+# Returns the books format types, 'kindle', 'audiobook' ect.
+
+@book.book_format_types
+
+```
