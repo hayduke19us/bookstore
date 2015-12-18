@@ -1,10 +1,12 @@
 <div class="panel panel-default">
   <div class="panel-body">
-    <h4><%= book.title %></h4>
+    <h4><%= book.title %>
+    <% book.average_rating.to_i.times do %>
+      <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+    <% end %> </h4>
     <ul>
-      <li><%= book.author_name %></li>
+     <li><%= book.author_name %></li>
       <li><%= book.publisher.name %></li>
-      <li><%= book.average_rating %></li>
     </ul>
   </div>
 </div>
