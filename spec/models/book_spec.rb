@@ -55,4 +55,24 @@ RSpec.describe Book, type: :model do
     expect(books.first.title).to eq('hardboiled soldier')
   end
 
+  it 'returns nothing if the query is empty' do
+    be_false Book.search('').any?
+  end
+
+  it 'scopes the found books by book_format_type_id' do
+    id = book_format_types(:hardcover)
+    books = Book.search('Jerome', options: { book_format_type_id: id })
+    expect(books.first.title).to eq('franny and zooey')
+  end
+
+  it 'scopes the found books by book_format_physical = true' do
+    books = Book.search('Jerome', options: { book_format_physical: true })
+    expect(books.first.title).to eq('franny and zooey')
+  end
+
+  it 'immediately returns books by title if title_only is true' do
+    books = Book.search('Jerome', options: { title_only: true })
+    expect(books.first.title).to eq('hardboiled soldier')
+  end
+
 end
