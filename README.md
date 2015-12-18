@@ -14,11 +14,11 @@ have BookFormatTypes through BookFormats and Books also have Reviews.
 
 				bundle exec install
 
-**Create The Database and run the migrations**
+**Create The database and run the migrations**
 
 				rake db:setup
 
-**Development Resources**
+**Development resources**
 
 				rake db:seed 
 
@@ -40,11 +40,11 @@ This will create:
 	
 =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
-**Run The Tests**
+**Run the tests**
 
 				bundle exec rake 
 
-**Searching For Books**
+**Searching for books**
 
 Book has a class method for searching that takes one argument and up to three
 options. 
@@ -68,7 +68,7 @@ Book.search "Jerome", options: {}
 * If format_type_physical is true it returns only the books that have a physical
 	format.
 
-** Author name**
+**Author name**
 
 ```ruby 
 
@@ -78,7 +78,7 @@ Book.search "Jerome", options: {}
 
 ```
 
-**Average Rating**
+**Average rating**
 
 ```ruby
 
@@ -88,7 +88,7 @@ Book.search "Jerome", options: {}
 
 ```
 
-**Book Format Types***
+**Book format types**
 
 
 ``` ruby 
