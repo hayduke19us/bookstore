@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
+
   root 'books#index'
 
-  get 'books/index' => 'books#index'
+  get 'books/index'
+  get 'authors/index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

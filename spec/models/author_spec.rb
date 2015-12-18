@@ -17,4 +17,8 @@ RSpec.describe Author, type: :model do
     be_false @author.valid?
   end
 
+  it 'returns the full name' do
+    expect('Jerome Salinger').to eq(@author.full_name)
+  end
+
 end

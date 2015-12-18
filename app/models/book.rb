@@ -37,15 +37,7 @@ class Book < ActiveRecord::Base
   end
 
   def author_name
-    author_first_name + ' ' + author_last_name
-  end
-
-  def author_first_name
-    author.first_name.capitalize
-  end
-
-  def author_last_name
-    author.last_name.capitalize
+    author.full_name
   end
 
   def average_rating
