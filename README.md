@@ -25,12 +25,19 @@ have BookFormatTypes through BookFormats and Books also have Reviews.
 This will create:
 
 =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-10  BookFormatType's created
-100 Publisher's created
-100 Author's created
-150 Book's created
-150 BookFormat's created
-15000 BookReview's created
+
+* 10  BookFormatType's created
+
+* 100 Publisher's created
+
+* 100 Author's created
+
+* 150 Book's created
+
+* 150 BookFormat's created
+
+* 15000 BookReview's created 
+	
 =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
 **Run The Tests**
